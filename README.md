@@ -2,6 +2,8 @@
 
 > A premium, high-fidelity replication of the Codegnan Learning Management System (LMS) Portal. Crafted with an ultra-modern aesthetic, dark mode styling, and dynamic components designed to look polished and premium.
 
+🚀 **Live Demo:** [codegnan-student-portal.onrender.com](https://codegnan-student-portal.onrender.com/)
+
 ---
 
 ## ✨ Features
