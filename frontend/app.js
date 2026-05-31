@@ -10,17 +10,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const DEFAULT_USER = {
         studentName: "Shabber Hussain",
-        studentID: "CGH3335",
-        batchNo: "PFS-HYD-056",
-        emailID: "shabberhussain934@gmail.com",
+        studentID: "CGXXX35",
+        batchNo: "PFS-HYD-XX6",
+        emailID: "shabberXXX4@gmail.com",
         dob: "2004-08-08",
         age: "21",
         gender: "Male",
         blood: "O+",
         city: "NANDYALA",
         state: "Andhra Pradesh",
-        phone: "+917899746857",
-        parentPhone: "+919849856198",
+        phone: "+91789XXXXX57",
+        parentPhone: "+91970XXXXX17",
         github: "https://github.com/shabber10",
         skills: "Python, Flask, HTML, CSS, Bootstrap, Javascript, MySQL"
     };
@@ -161,9 +161,17 @@ document.addEventListener('DOMContentLoaded', () => {
     // 2. UI SYNCING UTILITIES
     // ==========================================
 
+    function getTimeGreeting() {
+        const hour = new Date().getHours();
+        if (hour >= 5 && hour < 12) return 'Good Morning';
+        if (hour >= 12 && hour < 17) return 'Good Afternoon';
+        if (hour >= 17 && hour < 21) return 'Good Evening';
+        return 'Good Night';
+    }
+
     function syncUserUI() {
         // Sync header welcome & top menu
-        document.getElementById('homeWelcomeTitle').textContent = `Good Night, ${user.studentName.split(' ')[0]}`;
+        document.getElementById('homeWelcomeTitle').textContent = `${getTimeGreeting()}, ${user.studentName.split(' ')[0]}`;
         document.querySelector('.user-name-small').textContent = user.studentName.split(' ')[0];
         document.querySelector('.user-email-small').textContent = user.emailID;
         document.getElementById('profileStudentName').textContent = user.studentName;
@@ -203,7 +211,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('badgesCountVal').textContent = metrics.badgesEarned;
         document.getElementById('badgesCountSummary').textContent = `${metrics.badgesEarned} of 51 earned`;
         document.getElementById('achievementBadgesVal').textContent = `${metrics.badgesEarned} / 51`;
-        
+
         let percent = Math.round((metrics.badgesEarned / 51) * 100);
         document.getElementById('achievementCompleteVal').textContent = `${percent}%`;
 
@@ -336,7 +344,7 @@ document.addEventListener('DOMContentLoaded', () => {
             for (let i = 1; i <= totalDays; i++) {
                 const sq = document.createElement('div');
                 sq.classList.add('heatmap-square');
-                
+
                 // Add random shade class to simulate high-fidelity attendance records
                 let rand = Math.random();
                 if (rand < 0.6) {
@@ -389,7 +397,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function renderLeaderboard(filter) {
         const data = LEADERBOARD_DATA[filter];
-        
+
         // Render Podiums
         let podiumHtml = '';
         data.podium.forEach(student => {
@@ -414,8 +422,8 @@ document.addEventListener('DOMContentLoaded', () => {
         // Render Performer Lists
         let listHtml = '';
         data.list.forEach(student => {
-            let avatarHtml = student.img 
-                ? `<img src="${student.img}" class="row-avatar">` 
+            let avatarHtml = student.img
+                ? `<img src="${student.img}" class="row-avatar">`
                 : `<div class="row-avatar-letter">${student.letter}</div>`;
 
             listHtml += `
@@ -540,7 +548,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Dynamic filtering of options in command palette
     paletteSearchInput.addEventListener('input', () => {
         const val = paletteSearchInput.value.toLowerCase().trim();
-        const filtered = SEARCHABLE_ROUTES.filter(route => 
+        const filtered = SEARCHABLE_ROUTES.filter(route =>
             route.title.toLowerCase().includes(val) || route.cat.toLowerCase().includes(val)
         );
         renderPaletteItems(filtered);
@@ -586,7 +594,7 @@ document.addEventListener('DOMContentLoaded', () => {
             user[key] = newVal;
             saveState();
             syncUserUI();
-            
+
             // Highlight update visually with mascot bubble message
             showMascotMessage(`I've updated your profile details, Shabber! ✅`);
         }
@@ -619,7 +627,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (resumeFileInput.files.length > 0) {
             const filename = resumeFileInput.files[0].name;
             metrics.uploadedResume = filename;
-            
+
             // Dynamic ATS scoring simulation based on skills match
             let baseScore = 75 + Math.floor(Math.random() * 15);
             metrics.atsScore = baseScore;
@@ -646,7 +654,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Show radial grade calculation & feedback reports
         atsScoreModal.classList.add('show');
-        
+
         atsScoreDetails.innerHTML = `
             <div class="ats-score-box">
                 <div class="ats-radial-progress" id="atsProgressCircle">
@@ -705,7 +713,7 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.addEventListener('click', () => {
             const subject = btn.getAttribute('data-subject');
             const data = CURRICULUM_DATA[subject];
-            
+
             curriculumSubjectTitle.textContent = `${subject.toUpperCase()} Course Curriculum Details`;
             courseCurriculumModal.classList.add('show');
 
@@ -805,7 +813,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 12. THEME TOGGLE (LIGHT / DARK) SYSTEM
     // ==========================================
     const themeToggleBtn = document.getElementById('themeToggleBtn');
-    
+
     // Check local storage theme on startup (default space gray dark)
     const currentTheme = localStorage.getItem('codegnan_theme') || 'dark';
     if (currentTheme === 'light') {
