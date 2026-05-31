@@ -1,0 +1,1394 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codegnan Student LMS Portal</title>
+    <!-- Google Fonts for premium typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- FontAwesome for standard icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Main Style Sheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="portal-container">
+
+        <!-- ================= SIDEBAR ================= -->
+        <aside class="sidebar-wrapper">
+            <!-- Brand / Logo Area -->
+            <div class="logo-area">
+                <div class="brand-logo">
+                    <span class="logo-curly">{</span>
+                    <span class="logo-curly-inner">}</span>
+                    <span class="logo-text-code">code</span><span class="logo-text-gnan">gnan</span>
+                    <span class="logo-registered">®</span>
+                </div>
+                <button class="sidebar-toggle" id="sidebarToggle">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+            </div>
+
+            <!-- Left mini stripe icons (collapsible visual aid) -->
+            <div class="sidebar-mini-stripe">
+                <div class="stripe-icons-top">
+                    <div class="stripe-icon active" data-target="home"><i class="fa-solid fa-house"></i></div>
+                    <div class="stripe-icon" data-target="curriculum"><i class="fa-solid fa-book-open"></i></div>
+                    <div class="stripe-icon" data-target="jobs"><i class="fa-solid fa-briefcase"></i></div>
+                    <div class="stripe-icon" data-target="achievements"><i class="fa-solid fa-shield-halved"></i></div>
+                    <div class="stripe-icon" data-target="profile"><i class="fa-solid fa-circle-user"></i></div>
+                </div>
+                <div class="stripe-icons-bottom">
+                    <div class="stripe-icon"><i class="fa-solid fa-circle-question"></i></div>
+                    <div class="stripe-icon"><i class="fa-solid fa-right-from-bracket"></i></div>
+                </div>
+            </div>
+
+            <!-- Navigation Links Column -->
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <span class="nav-section-title">DASHBOARD</span>
+                    <a href="#" class="nav-item active" data-page="home">
+                        <i class="fa-solid fa-house"></i>
+                        <span class="nav-text">Home</span>
+                    </a>
+                </div>
+
+                <div class="nav-section">
+                    <span class="nav-section-title">LEARNING</span>
+                    <a href="#" class="nav-item" data-page="curriculum">
+                        <i class="fa-solid fa-book-open"></i>
+                        <span class="nav-text">My Course</span>
+                    </a>
+                    <a href="#" class="nav-item" data-page="exams">
+                        <i class="fa-solid fa-pen-clip"></i>
+                        <span class="nav-text">Exams</span>
+                    </a>
+                    <a href="#" class="nav-item" data-page="exam-reports">
+                        <i class="fa-solid fa-chart-line"></i>
+                        <span class="nav-text">Exam Reports</span>
+                    </a>
+                </div>
+
+                <div class="nav-section">
+                    <span class="nav-section-title">PLAYGROUND</span>
+                    <a href="#" class="nav-item" data-page="playground">
+                        <i class="fa-solid fa-code"></i>
+                        <span class="nav-text">Playground</span>
+                    </a>
+                    <a href="#" class="nav-item" data-page="code-leaderboard">
+                        <i class="fa-solid fa-trophy"></i>
+                        <span class="nav-text">Code Leaderboard</span>
+                    </a>
+                </div>
+
+                <div class="nav-section">
+                    <span class="nav-section-title">CAREER</span>
+                    <a href="#" class="nav-item" data-page="jobs">
+                        <i class="fa-solid fa-briefcase"></i>
+                        <span class="nav-text">All Jobs</span>
+                    </a>
+                    <a href="#" class="nav-item" data-page="interview">
+                        <i class="fa-solid fa-microphone"></i>
+                        <span class="nav-text">Mock Interview</span>
+                    </a>
+                </div>
+
+                <div class="nav-section">
+                    <span class="nav-section-title">ACHIEVEMENTS</span>
+                    <a href="#" class="nav-item" data-page="achievements">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <span class="nav-text">Badges</span>
+                    </a>
+                    <a href="#" class="nav-item" data-page="badge-timeline">
+                        <i class="fa-solid fa-timeline"></i>
+                        <span class="nav-text">Timeline</span>
+                    </a>
+                    <a href="#" class="nav-item" data-page="certificates">
+                        <i class="fa-solid fa-certificate"></i>
+                        <span class="nav-text">Certificates</span>
+                    </a>
+                </div>
+
+                <div class="nav-footer">
+                    <a href="#" class="nav-item" data-page="profile">
+                        <i class="fa-solid fa-circle-user"></i>
+                        <span class="nav-text">Profile</span>
+                    </a>
+                    <a href="#" class="nav-item" id="helpBtn">
+                        <i class="fa-solid fa-circle-question"></i>
+                        <span class="nav-text">Help</span>
+                    </a>
+                    <a href="#" class="nav-item" id="logoutBtn">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                        <span class="nav-text">Logout</span>
+                    </a>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- ================= MAIN LAYOUT WRAPPER ================= -->
+        <main class="main-content-wrapper">
+
+            <!-- ================= TOP NAVBAR ================= -->
+            <header class="top-navbar">
+                <!-- Search Bar Container -->
+                <div class="search-bar-container" id="searchBarBtn">
+                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                    <input type="text" placeholder="Search pages..." disabled>
+                    <span class="search-shortcut">Ctrl K</span>
+                </div>
+
+                <!-- Right Side Info Widgets -->
+                <div class="navbar-widgets">
+                    <!-- Point / Streak badges -->
+                    <div class="streak-widgets">
+                        <div class="streak-badge flame" title="Daily Streaks">
+                            <i class="fa-solid fa-fire-flame-curved"></i>
+                            <span class="streak-count" id="fireStreakVal">0</span>
+                        </div>
+                        <div class="streak-badge water" title="Attendance points">
+                            <i class="fa-solid fa-droplet"></i>
+                            <span class="streak-count" id="waterStreakVal">0</span>
+                        </div>
+                        <div class="streak-badge purple-spark" title="Skill points">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i>
+                            <span class="streak-count" id="sparkStreakVal">0</span>
+                        </div>
+                        <div class="streak-badge xp-coin" title="Total XP">
+                            <div class="xp-circle">XP</div>
+                            <span class="streak-count" id="xpStreakVal">0 XP</span>
+                        </div>
+
+                        <!-- Theme Toggle Button -->
+                        <button class="theme-toggle-btn" id="themeToggleBtn" title="Toggle Light/Dark Theme">
+                            <i class="fa-solid fa-moon"></i>
+                        </button>
+
+                        <!-- User Account dropdown menu -->
+                        <div class="user-menu-wrapper" id="userDropdownTrigger">
+                            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=256&auto=format&fit=crop"
+                                alt="Shabber Hussain Profile Photo" class="user-avatar-small" id="userHeaderAvatar">
+                            <div class="user-details-small">
+                                <span class="user-name-small">Shabber</span>
+                                <span class="user-email-small">shabberhussain934@gmail.com</span>
+                            </div>
+                            <i class="fa-solid fa-chevron-down user-chevron"></i>
+
+                            <!-- Dropdown panel -->
+                            <div class="dropdown-panel" id="userDropdownPanel">
+                                <a href="#" data-page="profile"><i class="fa-solid fa-circle-user"></i> My Profile</a>
+                                <a href="#" data-page="achievements"><i class="fa-solid fa-shield-halved"></i> My
+                                    Badges</a>
+                                <hr>
+                                <a href="#" id="menuLogoutBtn"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+                            </div>
+                        </div>
+                    </div>
+            </header>
+
+            <!-- ================= DYNAMIC VIEW PAGES ================= -->
+            <div class="page-viewport-container">
+
+                <!-- 1. HOME / DASHBOARD PAGE -->
+                <div class="viewport-page active" id="home-page">
+                    <div class="dashboard-grid">
+
+                        <!-- LEFT MAIN COLUMN -->
+                        <div class="dashboard-main-col">
+                            <!-- Welcome Banner card -->
+                            <div class="welcome-banner">
+                                <div class="welcome-text-side">
+                                    <h1 class="welcome-title" id="homeWelcomeTitle">Good Night, Shabber</h1>
+                                    <p class="welcome-subtitle">Let's keep crushing your goals today.</p>
+
+                                    <div class="score-card-banner">
+                                        <span class="score-label-banner">Overall Score</span>
+                                        <span class="score-value-banner">N/A</span>
+                                    </div>
+                                </div>
+                                <div class="welcome-visual-side">
+                                    <div class="weather-widget">
+                                        <div class="weather-icon-cloud">
+                                            <i class="fa-solid fa-cloud-moon"></i>
+                                        </div>
+                                        <span class="weather-temp">32.5°C</span>
+                                    </div>
+                                    <!-- 3D Mascot character replica inside the SVG banner -->
+                                    <div class="mascot-3d-character">
+                                        <img src="https://www.placements.codegnan.com/assets/Boy-DHTlkf-Z.png">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Latest Jobs Section -->
+                            <div class="dashboard-card latest-jobs-card">
+                                <div class="card-header-dashboard">
+                                    <h3 class="card-title-dashboard">Latest Jobs</h3>
+                                </div>
+                                <div class="card-body-dashboard flex-center">
+                                    <div class="empty-state-container">
+                                        <div class="empty-state-icon"><i class="fa-solid fa-briefcase"></i></div>
+                                        <span class="empty-state-text">No jobs available</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Performance Trend Section -->
+                            <div class="dashboard-card performance-trend-card">
+                                <div class="card-header-dashboard split">
+                                    <div class="header-left">
+                                        <h3 class="card-title-dashboard">Performance Trend <i
+                                                class="fa-regular fa-circle-question info-icon-dashboard"
+                                                title="Shows test score trends"></i></h3>
+                                        <span class="card-subtitle-dashboard">Last Month</span>
+                                    </div>
+                                    <div class="header-right-toggle">
+                                        <button class="toggle-btn active">Daily</button>
+                                        <button class="toggle-btn">Weekly</button>
+                                        <button class="toggle-btn">grand</button>
+                                        <button class="toggle-btn">interview</button>
+                                    </div>
+                                </div>
+                                <div class="card-body-dashboard">
+                                    <div class="performance-chart-placeholder">
+                                        <svg viewBox="0 0 500 150" class="performance-svg-chart">
+                                            <!-- Grids -->
+                                            <line x1="20" y1="20" x2="480" y2="20" stroke="#f1f5f9"
+                                                stroke-width="1.5" />
+                                            <line x1="20" y1="60" x2="480" y2="60" stroke="#f1f5f9"
+                                                stroke-width="1.5" />
+                                            <line x1="20" y1="100" x2="480" y2="100" stroke="#f1f5f9"
+                                                stroke-width="1.5" />
+                                            <line x1="20" y1="130" x2="480" y2="130" stroke="#e2e8f0"
+                                                stroke-width="2" />
+                                            <!-- Dash Line -->
+                                            <path d="M20 130 Q120 120 220 128 T420 125 L480 130" fill="none"
+                                                stroke="#94a3b8" stroke-dasharray="4 4" stroke-width="2" />
+                                            <text x="250" y="80" class="chart-empty-text">No data recorded</text>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Student Attendance Heatmap Section -->
+                            <div class="dashboard-card attendance-heatmap-card">
+                                <div class="card-header-dashboard">
+                                    <h3 class="card-title-dashboard">Student Attendance Heatmap <i
+                                            class="fa-regular fa-circle-question info-icon-dashboard"
+                                            title="Heatmap showing daily attendance history"></i></h3>
+                                </div>
+                                <div class="card-body-dashboard heatmap-flex-layout">
+                                    <!-- GitHub Style Heatmap Grid -->
+                                    <div class="heatmap-container">
+                                        <div class="heatmap-grid-scroll">
+                                            <div class="heatmap-month-col" id="janHeatmap">
+                                                <span class="heatmap-month-label">Jan</span>
+                                                <div class="heatmap-squares-grid" id="janSquares"></div>
+                                            </div>
+                                            <div class="heatmap-month-col" id="febHeatmap">
+                                                <span class="heatmap-month-label">Feb</span>
+                                                <div class="heatmap-squares-grid" id="febSquares"></div>
+                                            </div>
+                                            <div class="heatmap-month-col" id="marHeatmap">
+                                                <span class="heatmap-month-label">Mar</span>
+                                                <div class="heatmap-squares-grid" id="marSquares"></div>
+                                            </div>
+                                            <div class="heatmap-month-col" id="aprHeatmap">
+                                                <span class="heatmap-month-label">Apr</span>
+                                                <div class="heatmap-squares-grid" id="aprSquares"></div>
+                                            </div>
+                                            <div class="heatmap-month-col" id="mayHeatmap">
+                                                <span class="heatmap-month-label">May</span>
+                                                <div class="heatmap-squares-grid" id="maySquares"></div>
+                                            </div>
+                                        </div>
+                                        <div class="heatmap-legend">
+                                            <span>Less</span>
+                                            <div class="legend-color shade-0"></div>
+                                            <div class="legend-color shade-1"></div>
+                                            <div class="legend-color shade-2"></div>
+                                            <div class="legend-color shade-3"></div>
+                                            <div class="legend-color shade-4"></div>
+                                            <span>More</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- Right Streaks Sidebar details -->
+                                    <div class="streaks-sidebar-box">
+                                        <h4 class="streaks-sidebar-title"><i
+                                                class="fa-solid fa-fire-flame-curved icon-orange-streaks"></i> Streaks
+                                        </h4>
+                                        <div class="streaks-detail-row">
+                                            <div class="streak-row-icon color-red"><i
+                                                    class="fa-solid fa-fire-flame-curved"></i></div>
+                                            <div class="streak-row-info">
+                                                <span class="streak-row-label">Attendance</span>
+                                                <span class="streak-row-val"><b class="streak-num"
+                                                        id="streaksAttendanceVal">0</b> Streak</span>
+                                            </div>
+                                        </div>
+                                        <div class="streaks-detail-row">
+                                            <div class="streak-row-icon color-blue"><i class="fa-solid fa-droplet"></i>
+                                            </div>
+                                            <div class="streak-row-info">
+                                                <span class="streak-row-label">Daily</span>
+                                                <span class="streak-row-val"><b class="streak-num"
+                                                        id="streaksDailyVal">0</b> Streak</span>
+                                            </div>
+                                        </div>
+                                        <div class="streaks-detail-row">
+                                            <div class="streak-row-icon color-cyan"><i
+                                                    class="fa-solid fa-wand-magic-sparkles"></i></div>
+                                            <div class="streak-row-info">
+                                                <span class="streak-row-label">Mock Interview</span>
+                                                <span class="streak-row-val"><b class="streak-num"
+                                                        id="streaksMockVal">0</b> Streak</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Subject Performance and Rank Movement row -->
+                            <div class="grid-two-columns">
+                                <!-- Subject Performance Analysis -->
+                                <div class="dashboard-card subject-performance-card">
+                                    <div class="card-header-dashboard">
+                                        <h3 class="card-title-dashboard">Subject Performance Analysis <i
+                                                class="fa-regular fa-circle-question info-icon-dashboard"
+                                                title="Average score in subjects"></i></h3>
+                                    </div>
+                                    <div class="card-body-dashboard flex-center">
+                                        <div class="empty-state-container">
+                                            <span class="empty-state-text-sub">No subject performance available</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Rank Movement Tracker -->
+                                <div class="dashboard-card rank-movement-card">
+                                    <div class="card-header-dashboard split">
+                                        <div class="header-left">
+                                            <h3 class="card-title-dashboard">Rank Movement Tracker <i
+                                                    class="fa-regular fa-circle-question info-icon-dashboard"
+                                                    title="Rank position changes"></i></h3>
+                                            <span class="card-subtitle-dashboard">Your progress over time</span>
+                                        </div>
+                                        <div class="header-right-toggle">
+                                            <button class="toggle-btn active">Daily</button>
+                                            <button class="toggle-btn">Weekly</button>
+                                            <button class="toggle-btn">Grand</button>
+                                            <button class="toggle-btn">Mock</button>
+                                        </div>
+                                    </div>
+                                    <div class="card-body-dashboard tracker-layout">
+                                        <div class="tracker-empty-space flex-center">
+                                            <span class="empty-state-text-sub">No rank movement available</span>
+                                        </div>
+                                        <div class="tracker-metrics-grid">
+                                            <div class="metric-card card-gray">
+                                                <span class="metric-value">0</span>
+                                                <span class="metric-label">Starting Rank</span>
+                                            </div>
+                                            <div class="metric-card card-blue">
+                                                <span class="metric-value">0</span>
+                                                <span class="metric-label">Current Rank</span>
+                                            </div>
+                                            <div class="metric-card card-green">
+                                                <span class="metric-value">0%</span>
+                                                <span class="metric-label">Improvement</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- RIGHT MAIN PANEL COLUMN -->
+                        <div class="dashboard-side-col">
+
+                            <!-- Codegnan Placed Students Carousel -->
+                            <div class="side-card placed-carousel-card">
+                                <div class="side-card-header split">
+                                    <h4 class="side-card-title">Codegnan Placed Students 🎉</h4>
+                                    <div class="carousel-nav-arrows">
+                                        <button class="arrow-btn" id="placedPrev"><i
+                                                class="fa-solid fa-chevron-left"></i></button>
+                                        <button class="arrow-btn" id="placedNext"><i
+                                                class="fa-solid fa-chevron-right"></i></button>
+                                    </div>
+                                </div>
+                                <div class="side-card-body">
+                                    <div class="placed-slides-container" id="placedSlides">
+                                        <!-- Slide 1 -->
+                                        <div class="placed-slide active">
+                                            <div class="placed-header">
+                                                <div class="placed-brand">
+                                                    <span class="brand-curly">{</span>
+                                                    <span class="brand-curly-inner">}</span>
+                                                    <span class="brand-text-code">code</span><span
+                                                        class="brand-text-gnan">gnan</span>
+                                                </div>
+                                                <span class="package-badge">6 LPA</span>
+                                            </div>
+                                            <div class="placed-content">
+                                                <div class="placed-student-info">
+                                                    <h5 class="placed-student-name">M K Madhava Yugandhar</h5>
+                                                    <span class="placed-student-id">JFS-VIJ-023</span>
+                                                    <span class="placed-company-badge">Dolphin Softech</span>
+                                                </div>
+                                                <div class="placed-student-avatar-box">
+                                                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=256&auto=format&fit=crop"
+                                                        alt="Madhava Yugandhar" class="placed-student-avatar">
+                                                    <div class="placed-ribbon">PLACED</div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Slide 2 -->
+                                        <div class="placed-slide">
+                                            <div class="placed-header">
+                                                <div class="placed-brand">
+                                                    <span class="brand-curly">{</span>
+                                                    <span class="brand-curly-inner">}</span>
+                                                    <span class="brand-text-code">code</span><span
+                                                        class="brand-text-gnan">gnan</span>
+                                                </div>
+                                                <span class="package-badge">4.5 LPA</span>
+                                            </div>
+                                            <div class="placed-content">
+                                                <div class="placed-student-info">
+                                                    <h5 class="placed-student-name">M VENKATA RAO</h5>
+                                                    <span class="placed-student-id">JFS-HYJ-031</span>
+                                                    <span class="placed-company-badge">ENH Isecure</span>
+                                                </div>
+                                                <div class="placed-student-avatar-box">
+                                                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=256&auto=format&fit=crop"
+                                                        alt="Venkata Rao" class="placed-student-avatar">
+                                                    <div class="placed-ribbon">PLACED</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Timeline Activity Section -->
+                            <div class="side-card timeline-activity-card">
+                                <div class="side-card-header split">
+                                    <h4 class="side-card-title">Timeline Activity</h4>
+                                    <a href="#" class="view-all-link" data-page="badge-timeline">View all</a>
+                                </div>
+                                <div class="side-card-body">
+                                    <div class="timeline-stepper">
+                                        <!-- Step 1 -->
+                                        <div class="timeline-step">
+                                            <div class="step-badge purple-circle">
+                                                <i class="fa-solid fa-lock-open"></i>
+                                            </div>
+                                            <div class="step-content">
+                                                <h5 class="step-title">Badge Unlocked</h5>
+                                                <span class="step-subtitle">Badge</span>
+                                                <span class="step-time">Today</span>
+                                            </div>
+                                        </div>
+                                        <!-- Step 2 -->
+                                        <div class="timeline-step">
+                                            <div class="step-badge green-circle">
+                                                <i class="fa-solid fa-check"></i>
+                                            </div>
+                                            <div class="step-content">
+                                                <h5 class="step-title">Attended React Class</h5>
+                                                <span class="step-subtitle label-attendance">Attendance</span>
+                                                <span class="step-time">Today</span>
+                                            </div>
+                                        </div>
+                                        <!-- Step 3 -->
+                                        <div class="timeline-step">
+                                            <div class="step-badge blue-circle">
+                                                <i class="fa-solid fa-laptop-code"></i>
+                                            </div>
+                                            <div class="step-content">
+                                                <h5 class="step-title">Completed Python Quiz</h5>
+                                                <span class="step-subtitle label-daily-exam">Daily Exam</span>
+                                                <span class="step-time">Today</span>
+                                            </div>
+                                        </div>
+                                        <!-- Step 4 -->
+                                        <div class="timeline-step">
+                                            <div class="step-badge indigo-circle">
+                                                <i class="fa-solid fa-trophy"></i>
+                                            </div>
+                                            <div class="step-content">
+                                                <h5 class="step-title">Top 10 in Codegnan</h5>
+                                                <span class="step-subtitle label-leaderboard">Leaderboard</span>
+                                                <span class="step-time">Today</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Mastery Leaderboard Section -->
+                            <div class="side-card mastery-leaderboard-card">
+                                <div class="side-card-header split-vertical">
+                                    <h4 class="side-card-title">Mastery Leaderboard <i
+                                            class="fa-regular fa-circle-question info-icon-dashboard"
+                                            title="Student ranks in course badges"></i></h4>
+                                    <div class="leaderboard-toggle-pills">
+                                        <button class="pill-btn active" data-filter="batch">Batch</button>
+                                        <button class="pill-btn" data-filter="location">Location</button>
+                                        <button class="pill-btn" data-filter="cg">CG</button>
+                                        <button class="pill-btn" data-filter="softskills">Soft Skills</button>
+                                    </div>
+                                </div>
+                                <div class="side-card-body overflow-hidden">
+                                    <!-- Podiums -->
+                                    <div class="leaderboard-podium-container" id="podiumArea">
+                                        <!-- 2nd Rank (Left) -->
+                                        <div class="podium-col rank-2">
+                                            <div class="podium-avatar-box">
+                                                <div class="avatar-letter border-silver">DP</div>
+                                                <span class="badge-rank shadow-silver">2</span>
+                                            </div>
+                                            <span class="podium-name">Depangi</span>
+                                            <span class="podium-id">PFS-HYD-056</span>
+                                            <span class="podium-points"><i class="fa-solid fa-trophy text-gold"></i> 0
+                                                Points</span>
+                                        </div>
+
+                                        <!-- 1st Rank (Center) -->
+                                        <div class="podium-col rank-1">
+                                            <div class="podium-avatar-box">
+                                                <div class="avatar-letter border-gold">
+                                                    <i class="fa-solid fa-crown gold-crown-floating"></i>
+                                                    KM
+                                                </div>
+                                                <span class="badge-rank shadow-gold">1</span>
+                                            </div>
+                                            <span class="podium-name">Kummari</span>
+                                            <span class="podium-id">PFS-HYD-056</span>
+                                            <span class="podium-points"><i class="fa-solid fa-trophy text-gold"></i> 0
+                                                Points</span>
+                                        </div>
+
+                                        <!-- 3rd Rank (Right) -->
+                                        <div class="podium-col rank-3">
+                                            <div class="podium-avatar-box">
+                                                <div class="avatar-letter border-bronze">H</div>
+                                                <span class="badge-rank shadow-bronze">3</span>
+                                            </div>
+                                            <span class="podium-name">Harshitha</span>
+                                            <span class="podium-id">PFS-HYD-056</span>
+                                            <span class="podium-points"><i class="fa-solid fa-trophy text-gold"></i> 0
+                                                Points</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- Performer List -->
+                                    <div class="leaderboard-list-container" id="performerList">
+                                        <!-- Row 4 -->
+                                        <div class="leaderboard-row">
+                                            <div class="row-left">
+                                                <span class="row-rank-num">4.</span>
+                                                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=256&auto=format&fit=crop"
+                                                    class="row-avatar">
+                                                <div class="row-student-detail">
+                                                    <span class="row-student-name">Gandham Anuhya</span>
+                                                    <span class="row-student-batch">PFS-HYD-056</span>
+                                                </div>
+                                            </div>
+                                            <span class="row-points"><i class="fa-solid fa-trophy text-slate"></i>
+                                                0</span>
+                                        </div>
+
+                                        <!-- Row 5 -->
+                                        <div class="leaderboard-row">
+                                            <div class="row-left">
+                                                <span class="row-rank-num">5.</span>
+                                                <div class="row-avatar-letter">NJ</div>
+                                                <div class="row-student-detail">
+                                                    <span class="row-student-name">N Jagadeesh</span>
+                                                    <span class="row-student-batch">PFS-HYD-056</span>
+                                                </div>
+                                            </div>
+                                            <span class="row-points"><i class="fa-solid fa-trophy text-slate"></i>
+                                                0</span>
+                                        </div>
+
+                                        <!-- Row 6 -->
+                                        <div class="leaderboard-row">
+                                            <div class="row-left">
+                                                <span class="row-rank-num">6.</span>
+                                                <div class="row-avatar-letter">UV</div>
+                                                <div class="row-student-detail">
+                                                    <span class="row-student-name">Uyyala Veena</span>
+                                                    <span class="row-student-batch">PFS-HYD-056</span>
+                                                </div>
+                                            </div>
+                                            <span class="row-points"><i class="fa-solid fa-trophy text-slate"></i>
+                                                0</span>
+                                        </div>
+
+                                        <!-- Row 7 -->
+                                        <div class="leaderboard-row">
+                                            <div class="row-left">
+                                                <span class="row-rank-num">7.</span>
+                                                <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&w=256&auto=format&fit=crop"
+                                                    class="row-avatar">
+                                                <div class="row-student-detail">
+                                                    <span class="row-student-name">Chandini Priya</span>
+                                                    <span class="row-student-batch">PFS-HYD-056</span>
+                                                </div>
+                                            </div>
+                                            <span class="row-points"><i class="fa-solid fa-trophy text-slate"></i>
+                                                0</span>
+                                        </div>
+
+                                        <!-- Current Student Row (Float highlighted at the bottom of standard ranks) -->
+                                        <div class="leaderboard-row active-highlight">
+                                            <div class="row-left">
+                                                <span class="row-rank-num">8.</span>
+                                                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=256&auto=format&fit=crop"
+                                                    class="row-avatar" id="leaderboardUserAvatar">
+                                                <div class="row-student-detail">
+                                                    <span class="row-student-name">Shabber Hussain</span>
+                                                    <span class="row-student-batch">PFS-HYD-056</span>
+                                                </div>
+                                            </div>
+                                            <span class="row-points"><i class="fa-solid fa-trophy text-blue"></i>
+                                                0</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Latest Achievements Section -->
+                            <div class="side-card achievements-card-side">
+                                <div class="side-card-header split">
+                                    <h4 class="side-card-title">Latest Achievements <i
+                                            class="fa-regular fa-circle-question info-icon-dashboard"
+                                            title="Unlocked badges list"></i></h4>
+                                    <a href="#" class="view-all-link" data-page="achievements">View all</a>
+                                </div>
+                                <div class="side-card-body flex-row-layout">
+                                    <!-- Star Badge Emblem -->
+                                    <div class="badge-emblem-wrapper">
+                                        <div class="badge-emblem-star">
+                                            <i class="fa-solid fa-star"></i>
+                                            <span class="emblem-label">CODING</span>
+                                        </div>
+                                    </div>
+                                    <div class="badge-details-box">
+                                        <h5 class="badge-achievements-title">No achievements yet</h5>
+                                        <div class="badge-count-row">
+                                            <span class="badge-count-label">Earned Badges</span>
+                                            <span class="badge-count-val" id="badgesCountVal">0</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- 2. MY COURSE PAGE -->
+                <div class="viewport-page" id="curriculum-page">
+                    <div class="curriculum-header">
+                        <h2 class="view-title"><i class="fa-solid fa-book-open"></i> Student Curriculum</h2>
+                    </div>
+                    <div class="courses-grid">
+
+                        <!-- Card 1: Python -->
+                        <div class="course-card">
+                            <div class="course-banner-top bg-solid-blue">
+                                <i class="fa-brands fa-python course-svg-icon"></i>
+                                <h4>PYTHON</h4>
+                            </div>
+                            <div class="course-body">
+                                <h3 class="course-name">Python</h3>
+                                <div class="course-rating-row">
+                                    <span class="rating-num">5.0</span>
+                                    <div class="stars-list">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                </div>
+                                <button class="know-more-btn" data-subject="python"><i class="fa-regular fa-eye"></i>
+                                    Know more</button>
+                            </div>
+                        </div>
+
+                        <!-- Card 2: Flask -->
+                        <div class="course-card">
+                            <div class="course-banner-top bg-solid-blue">
+                                <i class="fa-solid fa-flask-vial course-svg-icon"></i>
+                                <h4>FLASK</h4>
+                            </div>
+                            <div class="course-body">
+                                <h3 class="course-name">Flask</h3>
+                                <div class="course-rating-row">
+                                    <span class="rating-num">5.0</span>
+                                    <div class="stars-list">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                </div>
+                                <button class="know-more-btn" data-subject="flask"><i class="fa-regular fa-eye"></i>
+                                    Know more</button>
+                            </div>
+                        </div>
+
+                        <!-- Card 3: Frontend -->
+                        <div class="course-card">
+                            <div class="course-banner-top bg-solid-blue">
+                                <i class="fa-brands fa-js course-svg-icon"></i>
+                                <h4>FRONTEND</h4>
+                            </div>
+                            <div class="course-body">
+                                <h3 class="course-name">Frontend</h3>
+                                <div class="course-rating-row">
+                                    <span class="rating-num">5.0</span>
+                                    <div class="stars-list">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                </div>
+                                <button class="know-more-btn" data-subject="frontend"><i class="fa-regular fa-eye"></i>
+                                    Know more</button>
+                            </div>
+                        </div>
+
+                        <!-- Card 4: MySQL -->
+                        <div class="course-card">
+                            <div class="course-banner-top bg-solid-blue">
+                                <i class="fa-solid fa-database course-svg-icon"></i>
+                                <h4>MY SQL</h4>
+                            </div>
+                            <div class="course-body">
+                                <h3 class="course-name">My SQL</h3>
+                                <div class="course-rating-row">
+                                    <span class="rating-num">5.0</span>
+                                    <div class="stars-list">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                </div>
+                                <button class="know-more-btn" data-subject="mysql"><i class="fa-regular fa-eye"></i>
+                                    Know more</button>
+                            </div>
+                        </div>
+
+                        <!-- Card 5: Soft Skills -->
+                        <div class="course-card">
+                            <div class="course-banner-top bg-solid-blue has-mascot">
+                                <span class="card-curly-code">&lt; &gt;</span>
+                                <h4>SOFT SKILLS</h4>
+                                <div class="mini-mascot-peeking">🤖</div>
+                            </div>
+                            <div class="course-body">
+                                <h3 class="course-name">Soft Skills</h3>
+                                <div class="course-rating-row">
+                                    <span class="rating-num">5.0</span>
+                                    <div class="stars-list">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                </div>
+                                <button class="know-more-btn" data-subject="softskills"><i
+                                        class="fa-regular fa-eye"></i> Know more</button>
+                            </div>
+                        </div>
+
+                        <!-- Card 6: Aptitude -->
+                        <div class="course-card">
+                            <div class="course-banner-top bg-solid-blue">
+                                <span class="card-curly-code">&lt; &gt;</span>
+                                <h4>APTITUDE</h4>
+                            </div>
+                            <div class="course-body">
+                                <h3 class="course-name">Aptitude</h3>
+                                <div class="course-rating-row">
+                                    <span class="rating-num">5.0</span>
+                                    <div class="stars-list">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                </div>
+                                <button class="know-more-btn" data-subject="aptitude"><i class="fa-regular fa-eye"></i>
+                                    Know more</button>
+                            </div>
+                        </div>
+
+                        <!-- Card 7: DSA Python -->
+                        <div class="course-card">
+                            <div class="course-banner-top bg-solid-blue">
+                                <span class="card-curly-code">&lt; &gt;</span>
+                                <h4>DSA-PYTHON</h4>
+                            </div>
+                            <div class="course-body">
+                                <h3 class="course-name">DSA-Python</h3>
+                                <div class="course-rating-row">
+                                    <span class="rating-num">5.0</span>
+                                    <div class="stars-list">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                </div>
+                                <button class="know-more-btn" data-subject="dsa"><i class="fa-regular fa-eye"></i> Know
+                                    more</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- 3. CAREER / JOBS PAGE -->
+                <div class="viewport-page" id="jobs-page">
+                    <div class="jobs-header split">
+                        <h2 class="view-title">Jobs <i class="fa-solid fa-circle-info info-icon-dashboard"
+                                title="Open placement listings"></i></h2>
+                    </div>
+
+                    <!-- Tabs inside Jobs -->
+                    <div class="jobs-navigation-tabs">
+                        <button class="job-tab-btn active" data-tab="open">Open To Apply</button>
+                        <button class="job-tab-btn" data-tab="applied">Applied</button>
+                        <button class="job-tab-btn" data-tab="hiring">Hiring Done</button>
+                        <button class="job-tab-btn" data-tab="missed">Missed Jobs</button>
+                    </div>
+
+                    <!-- Search Filter Row -->
+                    <div class="jobs-filter-row">
+                        <div class="jobs-search-box">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <input type="text" id="jobsSearchInput" placeholder="Search by company name">
+                        </div>
+                        <button class="jobs-filter-dropdown-btn">
+                            <i class="fa-solid fa-filter"></i> Filters <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                    </div>
+
+                    <!-- Grid Content (Replicating the exact gray cards from screenshot 5) -->
+                    <div class="jobs-listings-grid" id="jobsGrid">
+                        <!-- Skeleton Card 1 -->
+                        <div class="job-skeleton-card">
+                            <div class="skeleton-content-area"></div>
+                        </div>
+                        <!-- Skeleton Card 2 -->
+                        <div class="job-skeleton-card">
+                            <div class="skeleton-content-area"></div>
+                        </div>
+                        <!-- Skeleton Card 3 -->
+                        <div class="job-skeleton-card">
+                            <div class="skeleton-content-area"></div>
+                        </div>
+                        <!-- Skeleton Card 4 -->
+                        <div class="job-skeleton-card">
+                            <div class="skeleton-content-area"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. ACHIEVEMENTS PAGE -->
+                <div class="viewport-page" id="achievements-page">
+                    <!-- Achievements Yellow Banner -->
+                    <div class="achievements-yellow-banner">
+                        <div class="banner-left-trophy">
+                            <div class="trophy-gold-large">🏆</div>
+                            <div class="banner-text">
+                                <h2 class="achievements-banner-title">Achievements</h2>
+                                <button class="achievements-share-btn"><i class="fa-solid fa-share-nodes"></i>
+                                    Share</button>
+                            </div>
+                        </div>
+                        <div class="banner-right-stats">
+                            <div class="banner-stat-col">
+                                <span class="stat-big" id="achievementBadgesVal">0 / 51</span>
+                                <span class="stat-small">Badges Earned</span>
+                            </div>
+                            <div class="banner-stat-col">
+                                <span class="stat-big" id="achievementCompleteVal">0%</span>
+                                <span class="stat-small">Completion</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Main grid (Trophy / Badges left, Timeline right) -->
+                    <div class="achievements-main-grid">
+                        <div class="achievements-left-pane">
+                            <!-- Badges earned summary card -->
+                            <div class="dashboard-card recent-badges-summary-card">
+                                <div class="card-header-dashboard split">
+                                    <h3 class="card-title-dashboard">Your Badges and Achievements</h3>
+                                    <span class="badges-count-pill" id="badgesCountSummary">0 of 51 earned</span>
+                                </div>
+                                <div class="card-body-dashboard flex-center min-height-140">
+                                    <span class="empty-state-text-sub">No recent badges yet.</span>
+                                </div>
+                            </div>
+
+                            <!-- Interactive Badge Filter pills -->
+                            <div class="badges-filter-pills-row">
+                                <button class="badge-pill active" data-badge-cat="consistency">Consistency</button>
+                                <button class="badge-pill" data-badge-cat="speed">Speed</button>
+                                <button class="badge-pill" data-badge-cat="skill">Skill Mastery</button>
+                                <button class="badge-pill" data-badge-cat="streak">Streak</button>
+                                <button class="badge-pill" data-badge-cat="engagement">Engagement</button>
+                                <button class="badge-pill" data-badge-cat="performance">Performance</button>
+                                <button class="badge-pill" data-badge-cat="interview">Interview</button>
+                                <button class="badge-pill" data-badge-cat="milestones">Milestones</button>
+                                <button class="badge-pill" data-badge-cat="all">All</button>
+                                <button class="badge-pill" data-badge-cat="upcoming">Upcoming</button>
+                            </div>
+                            <span class="filter-count-sub" id="badgePillStatusText">0 earned of 51 available</span>
+
+                            <!-- Badges Cards Grid (Exact replica of screenshot 6) -->
+                            <div class="badges-grid-pane" id="badgesGridPane">
+                                <!-- Card 1 -->
+                                <div class="badge-card-box">
+                                    <span class="badge-rarity common">Common</span>
+                                    <div class="badge-graphic-box">
+                                        <div class="badge-shield-body">
+                                            <i class="fa-solid fa-clock-rotate-left badge-inner-icon"></i>
+                                            <span class="badge-shield-ribbon">DISCIPLINE</span>
+                                        </div>
+                                    </div>
+                                    <h4 class="badge-name">Steady</h4>
+                                    <span class="badge-desc">Steady Performer</span>
+                                    <span class="badge-avail">Available badge</span>
+                                    <span class="badge-points-val"><i class="fa-solid fa-bookmark"></i> 50 pts</span>
+                                </div>
+
+                                <!-- Card 2 -->
+                                <div class="badge-card-box">
+                                    <span class="badge-rarity rare">Rare</span>
+                                    <div class="badge-graphic-box">
+                                        <div class="badge-shield-body color-purple">
+                                            <i class="fa-solid fa-user-gear badge-inner-icon"></i>
+                                            <span class="badge-shield-ribbon">DISCIPLINE</span>
+                                        </div>
+                                    </div>
+                                    <h4 class="badge-name">Proficient</h4>
+                                    <span class="badge-desc">Expert Performer</span>
+                                    <span class="badge-avail">Available badge</span>
+                                    <span class="badge-points-val"><i class="fa-solid fa-bookmark"></i> 75 pts</span>
+                                </div>
+
+                                <!-- Card 3 -->
+                                <div class="badge-card-box">
+                                    <span class="badge-rarity rare">Rare</span>
+                                    <div class="badge-graphic-box">
+                                        <div class="badge-shield-body color-purple">
+                                            <i class="fa-solid fa-award badge-inner-icon"></i>
+                                            <span class="badge-shield-ribbon">DISCIPLINE</span>
+                                        </div>
+                                    </div>
+                                    <h4 class="badge-name">Accomplished</h4>
+                                    <span class="badge-desc">Elite Performer</span>
+                                    <span class="badge-avail">Available badge</span>
+                                    <span class="badge-points-val"><i class="fa-solid fa-bookmark"></i> 100 pts</span>
+                                </div>
+
+                                <!-- Card 4 -->
+                                <div class="badge-card-box">
+                                    <span class="badge-rarity rare">Rare</span>
+                                    <div class="badge-graphic-box">
+                                        <div class="badge-shield-body color-purple">
+                                            <i class="fa-solid fa-gauge-high badge-inner-icon"></i>
+                                            <span class="badge-shield-ribbon">DISCIPLINE</span>
+                                        </div>
+                                    </div>
+                                    <h4 class="badge-name">Metronome</h4>
+                                    <span class="badge-desc">Metronome Performer</span>
+                                    <span class="badge-avail">Available badge</span>
+                                    <span class="badge-points-val"><i class="fa-solid fa-bookmark"></i> 100 pts</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="achievements-right-pane">
+                            <div class="side-card achievement-timeline-card">
+                                <div class="side-card-header split">
+                                    <h4 class="side-card-title">Achievement Timeline</h4>
+                                    <i class="fa-solid fa-chevron-down"></i>
+                                </div>
+                                <div class="side-card-body flex-center min-height-240">
+                                    <span class="empty-state-text-sub">No timeline entries yet.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. STUDENT PROFILE PAGE -->
+                <div class="viewport-page" id="profile-page">
+                    <!-- Top profile info row -->
+                    <div class="profile-cards-grid">
+
+                        <!-- Left card: Photo & Name -->
+                        <div class="profile-card avatar-details-card">
+                            <div class="avatar-large-wrapper">
+                                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=256&auto=format&fit=crop"
+                                    alt="Shabber Hussain Profile Photo" class="profile-avatar-large"
+                                    id="profileUserAvatar">
+                                <label for="avatarUploadInput" class="avatar-upload-label" title="Upload new photo">
+                                    <i class="fa-solid fa-camera"></i>
+                                </label>
+                                <input type="file" id="avatarUploadInput" accept="image/*" class="hidden">
+                            </div>
+                            <h2 class="profile-student-name" id="profileStudentName">Shabber Hussain</h2>
+                            <span class="profile-student-id-label">ID: CGH3335</span>
+                        </div>
+
+                        <!-- Middle card: Personal Info -->
+                        <div class="profile-card personal-details-card">
+                            <h3 class="profile-section-title"><i class="fa-solid fa-circle-user"></i> Personal
+                                Information</h3>
+                            <div class="profile-fields-list">
+                                <div class="profile-field-row">
+                                    <span class="field-label">Student Name</span>
+                                    <span class="field-separator">:</span>
+                                    <span class="field-value editable" data-field="studentName"
+                                        id="pStudentName">Shabber Hussain</span>
+                                </div>
+                                <div class="profile-field-row">
+                                    <span class="field-label">Student ID</span>
+                                    <span class="field-separator">:</span>
+                                    <span class="field-value" id="pStudentID">CGH3335</span>
+                                </div>
+                                <div class="profile-field-row">
+                                    <span class="field-label">Batch No</span>
+                                    <span class="field-separator">:</span>
+                                    <span class="field-value editable" data-field="batchNo"
+                                        id="pBatchNo">PFS-HYD-056</span>
+                                </div>
+                                <div class="profile-field-row">
+                                    <span class="field-label">Email ID</span>
+                                    <span class="field-separator">:</span>
+                                    <span class="field-value editable" data-field="emailID"
+                                        id="pEmailID">shabberhussain934@gmail.com</span>
+                                </div>
+                                <div class="profile-field-row">
+                                    <span class="field-label">Date of Birth</span>
+                                    <span class="field-separator">:</span>
+                                    <span class="field-value editable" data-field="dob" id="pDOB">2004-08-08</span>
+                                </div>
+                                <div class="profile-field-row">
+                                    <span class="field-label">Age</span>
+                                    <span class="field-separator">:</span>
+                                    <span class="field-value editable" data-field="age" id="pAge">21</span>
+                                </div>
+                                <div class="profile-field-row">
+                                    <span class="field-label">Gender</span>
+                                    <span class="field-separator">:</span>
+                                    <span class="field-value editable" data-field="gender" id="pGender">Male</span>
+                                </div>
+                                <div class="profile-field-row">
+                                    <span class="field-label">Blood Group</span>
+                                    <span class="field-separator">:</span>
+                                    <span class="field-value editable" data-field="blood" id="pBlood">O+</span>
+                                </div>
+                                <div class="profile-field-row">
+                                    <span class="field-label">City</span>
+                                    <span class="field-separator">:</span>
+                                    <span class="field-value editable" data-field="city" id="pCity">NANDYALA</span>
+                                </div>
+                                <div class="profile-field-row">
+                                    <span class="field-label">State</span>
+                                    <span class="field-separator">:</span>
+                                    <span class="field-value editable" data-field="state" id="pState">Andhra
+                                        Pradesh</span>
+                                </div>
+                                <div class="profile-field-row">
+                                    <span class="field-label">Student Phone Number</span>
+                                    <span class="field-separator">:</span>
+                                    <span class="field-value editable" data-field="phone"
+                                        id="pPhone">+917899746857</span>
+                                </div>
+                                <div class="profile-field-row">
+                                    <span class="field-label">Parent Phone Number</span>
+                                    <span class="field-separator">:</span>
+                                    <span class="field-value editable" data-field="parentPhone"
+                                        id="pParentPhone">+919849856198</span>
+                                </div>
+                                <div class="profile-field-row">
+                                    <span class="field-label">Github Link</span>
+                                    <span class="field-separator">:</span>
+                                    <span class="field-value editable" data-field="github"
+                                        id="pGithub">https://github.com/shabber10</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right card: Academic Info -->
+                        <div class="profile-card academic-details-card">
+                            <h3 class="profile-section-title"><i class="fa-solid fa-graduation-cap"></i> Academic
+                                Information</h3>
+                            <div class="profile-fields-list">
+                                <div class="profile-field-row">
+                                    <span class="field-label">College Name</span>
+                                    <span class="field-separator">:</span>
+                                    <span class="field-value" id="aCollege">Parul University</span>
+                                </div>
+                                <div class="profile-field-row">
+                                    <span class="field-label">USN Number</span>
+                                    <span class="field-separator">:</span>
+                                    <span class="field-value" id="aUSN">2203031241202</span>
+                                </div>
+                                <div class="profile-field-row">
+                                    <span class="field-label">Qualification</span>
+                                    <span class="field-separator">:</span>
+                                    <span class="field-value" id="aQual">UG (Bachelor Degrees)</span>
+                                </div>
+                                <div class="profile-field-row">
+                                    <span class="field-label">Department</span>
+                                    <span class="field-separator">:</span>
+                                    <span class="field-value department-multiline" id="aDept">B.Tech - Computer Science
+                                        (CSE, Cybersecurity, AI & ML, IoT, Cloud Computing, Data Analytics, Data
+                                        Science)</span>
+                                </div>
+                                <div class="profile-field-row">
+                                    <span class="field-label">Pass out Year</span>
+                                    <span class="field-separator">:</span>
+                                    <span class="field-value" id="aPassYear">2026</span>
+                                </div>
+                                <div class="profile-field-row">
+                                    <span class="field-label">Graduation Percentage</span>
+                                    <span class="field-separator">:</span>
+                                    <span class="field-value" id="aPercentage">69%</span>
+                                </div>
+                                <div class="profile-field-row">
+                                    <span class="field-label">Arrears</span>
+                                    <span class="field-separator">:</span>
+                                    <span class="field-value" id="aArrears">No</span>
+                                </div>
+                                <div class="profile-field-row">
+                                    <span class="field-label">No of Arrears</span>
+                                    <span class="field-separator">:</span>
+                                    <span class="field-value" id="aNumArrears">0</span>
+                                </div>
+                                <div class="profile-field-row">
+                                    <span class="field-label">10th Pass Year</span>
+                                    <span class="field-separator">:</span>
+                                    <span class="field-value" id="a10thYear">2020</span>
+                                </div>
+                                <div class="profile-field-row">
+                                    <span class="field-label">10th Percentage</span>
+                                    <span class="field-separator">:</span>
+                                    <span class="field-value" id="a10thPercent">92%</span>
+                                </div>
+                                <div class="profile-field-row">
+                                    <span class="field-label">12th Pass Year</span>
+                                    <span class="field-separator">:</span>
+                                    <span class="field-value" id="a12thYear">2022</span>
+                                </div>
+                                <div class="profile-field-row">
+                                    <span class="field-label">12th Percentage</span>
+                                    <span class="field-separator">:</span>
+                                    <span class="field-value" id="a12thPercent">89.5%</span>
+                                </div>
+                                <div class="profile-field-row">
+                                    <span class="field-label">Skills</span>
+                                    <span class="field-separator">:</span>
+                                    <span class="field-value editable" data-field="skills" id="aSkills">Python, Flask,
+                                        HTML, CSS, Bootstrap, Javascript, MySQL</span>
+                                </div>
+                            </div>
+                            <button class="fees-details-btn" id="feesDetailsBtn"><i
+                                    class="fa-regular fa-folder-open"></i> Fees Details</button>
+                        </div>
+                    </div>
+
+                    <!-- Bottom widgets row -->
+                    <div class="profile-bottom-grid">
+                        <!-- Upload Resume Box -->
+                        <div class="profile-bottom-card upload-resume-card">
+                            <h3 class="profile-bottom-title"><i class="fa-solid fa-cloud-arrow-up"></i> Upload Resume
+                            </h3>
+                            <div class="resume-upload-form">
+                                <div class="file-picker-styled" id="resumeDropZone">
+                                    <i class="fa-solid fa-file-pdf pdf-accent-icon"></i>
+                                    <span class="picker-label" id="resumeLabel">Choose PDF</span>
+                                    <input type="file" id="resumeFileInput" accept=".pdf" class="hidden">
+                                </div>
+                                <button class="upload-submit-btn" id="resumeUploadBtn"><i
+                                        class="fa-solid fa-arrow-up-from-bracket"></i> Upload</button>
+                            </div>
+                        </div>
+
+                        <!-- Your Resume Preview Box -->
+                        <div class="profile-bottom-card view-resume-card">
+                            <h3 class="profile-bottom-title"><i class="fa-solid fa-file-invoice"></i> Your Resume</h3>
+                            <div class="resume-actions-row">
+                                <button class="resume-action-btn btn-gray" id="viewResumeBtn"><i
+                                        class="fa-regular fa-eye"></i> View</button>
+                                <button class="resume-action-btn btn-blue" id="atsScoreBtn"><i
+                                        class="fa-solid fa-arrows-spin"></i> ATS Score</button>
+                            </div>
+                        </div>
+
+                        <!-- Current Score Panel (Exact match to screenshot 7 blue block) -->
+                        <div class="current-score-card">
+                            <div class="score-card-content">
+                                <div class="score-main-row">
+                                    <div class="box-icon-white"><i class="fa-solid fa-cube"></i></div>
+                                    <div class="score-text-block">
+                                        <span class="score-text-label">CURRENT SCORE</span>
+                                        <span class="score-text-val" id="profileCurrentScore">82.5/100</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mascot-robot-float">
+                                <div class="mascot-avatar-circle">🤖</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. OTHER PLACEHOLDER PAGES (EXAMS, REPORTS, INTERVIEWS, PLAYGROUND, ETC) -->
+                <div class="viewport-page" id="placeholder-page">
+                    <div class="placeholder-container flex-center">
+                        <div class="empty-state-container">
+                            <div class="empty-state-icon"><i class="fa-solid fa-toolbox"></i></div>
+                            <h2 class="view-title" id="placeholderTitle">Under Construction</h2>
+                            <p class="empty-state-text-sub">This section of the portal is dynamically simulated. Please
+                                visit Dashboard, Curriculum, Jobs, Achievements, or Profile for full exact high-fidelity
+                                screens!</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </main>
+    </div>
+
+    <!-- ================= MODALS & OVERLAYS ================= -->
+
+    <!-- Global Command Palette Search Drawer (Ctrl + K) -->
+    <div class="modal-overlay" id="searchPaletteModal">
+        <div class="search-drawer-container">
+            <div class="search-drawer-header">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="paletteSearchInput"
+                    placeholder="Where would you like to go? (e.g. Profile, Jobs...)">
+                <button class="palette-close-btn" id="closeSearchPaletteBtn"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="search-drawer-results" id="paletteResults">
+                <!-- Will be dynamically populated by JS -->
+            </div>
+            <div class="search-drawer-footer">
+                <span>Use <kbd>↑</kbd> <kbd>↓</kbd> to navigate, <kbd>Enter</kbd> to select, <kbd>ESC</kbd> to
+                    dismiss.</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Course Know More Modal Drawer -->
+    <div class="modal-overlay" id="courseCurriculumModal">
+        <div class="curriculum-drawer">
+            <div class="drawer-header">
+                <h3 id="curriculumSubjectTitle">Subject Curriculum</h3>
+                <button class="drawer-close-btn" id="closeCurriculumBtn"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="drawer-body" id="curriculumDetails">
+                <!-- Loaded dynamically by JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Profile Modal -->
+    <div class="modal-overlay" id="editProfileModal">
+        <div class="edit-profile-dialog">
+            <div class="drawer-header">
+                <h3>Edit Profile Data</h3>
+                <button class="drawer-close-btn" id="closeEditProfileBtn"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="drawer-body">
+                <form id="editProfileForm">
+                    <input type="hidden" id="editFieldKey">
+                    <div class="form-group">
+                        <label for="editFieldValue" id="editFieldLabel">Value</label>
+                        <input type="text" id="editFieldValue" class="form-control">
+                    </div>
+                    <button type="submit" class="form-submit-btn">Save Changes</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- ATS Score Report Drawer -->
+    <div class="modal-overlay" id="atsScoreModal">
+        <div class="curriculum-drawer width-large">
+            <div class="drawer-header">
+                <h3><i class="fa-solid fa-brain"></i> Resume ATS Analytics</h3>
+                <button class="drawer-close-btn" id="closeAtsBtn"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="drawer-body" id="atsScoreDetails">
+                <!-- Managed dynamically by app.js -->
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= FLOATING AI MASCOT CHAT DRAWER ================= -->
+    <div class="chatbot-floating-mascot" id="chatbotMascotTrigger">
+        <div class="mascot-chatbot-avatar">🤖</div>
+        <div class="mascot-speech-bubble" id="mascotSpeechBubble">How are you? 👋</div>
+    </div>
+
+    <div class="chatbot-drawer" id="chatbotDrawer">
+        <div class="chatbot-header">
+            <div class="mascot-header-avatar">🤖</div>
+            <div class="mascot-header-text">
+                <h4>Codegnan AI Tutor</h4>
+                <span>Online to assist you</span>
+            </div>
+            <button class="drawer-close-btn" id="closeChatbotBtn"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="chatbot-messages" id="chatbotMessages">
+            <div class="chat-message bot">
+                Hi Shabber! I am your interactive Codegnan AI assistant. I can help you analyze your study streaks,
+                resume ATS score, or guide you through your course curriculum. How can I help you today?
+            </div>
+        </div>
+        <div class="chatbot-input-row">
+            <input type="text" id="chatbotInput" placeholder="Ask a question...">
+            <button id="sendChatBtn"><i class="fa-solid fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <!-- Script Entrypoint -->
+    <script src="app.js"></script>
+</body>
+
+</html>
